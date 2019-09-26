@@ -1,6 +1,8 @@
 import ejs from 'rollup-plugin-emit-ejs';
 import resolve from 'rollup-plugin-node-resolve';
 import html from 'rollup-plugin-html-minifier';
+import stylus from 'rollup-plugin-stylus-compiler';
+import css from 'rollup-plugin-css-porter';
 
 const output = [];
 
@@ -12,6 +14,8 @@ output.push({
   },
   plugins: [
     resolve(),
+    stylus(),
+    css(),
     ejs({
       src: 'src',
       layout: 'src/layout/layout.html.ejs',
